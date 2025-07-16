@@ -1,16 +1,12 @@
-# FROM maven:3.5
-# WORKDIR /opt/server
-# COPY src .
-# COPY pom.xml .
-# RUN mvn clean package
-# RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
-# ENV CART_ENDPOINT=cart:8080 \
-#     DB_HOST=mysql
-# CMD ["java","-jar","shipping.jar"]
-
-
-FROM almalinux
+FROM maven:3.5
 WORKDIR /opt/server
+COPY src .
 COPY pom.xml .
-COPY src /opt/server
-CMD ["sleep", "1000"]
+RUN mvn clean package
+RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
+ENV CART_ENDPOINT=cart:8080 \
+    DB_HOST=mysql
+CMD ["java","-jar","shipping.jar"]
+
+
+
