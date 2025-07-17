@@ -8,7 +8,7 @@ services:
     image: yadaveshnithin/mongodb:v1
     container_name: mongodb
   mysql:
-    image: yadaveshnithin/mysql
+    image: yadaveshnithin/mysql:v1
     container_name: mysql
   redis:
     image: redis:7.0
