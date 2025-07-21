@@ -12,7 +12,6 @@ ENV MONGO_URL="mongodb://mongodb:27017/catalogue" \
     MONGO=true
 RUN apk update --no-cache
 RUN apk add --no-cache net-tools git
-RUN apk-get clean
 COPY --from=builder /opt/server /opt/server
 USER roboshop
 CMD ["node", "server.js"]
