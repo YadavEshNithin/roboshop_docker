@@ -11,9 +11,9 @@ RUN chown -R roboshop:roboshop /opt/server
 ENV MONGO_URL="mongodb://mongodb:27017/catalogue" \
     MONGO=true
 USER roboshop
-RUN apt-get update -y 
-RUN apt-get install net-tools git -y 
-RUN apt-get clean
+RUN apk update --no-cache
+RUN apk add --no-cache net-tools git
+RUN apk-get clean
 COPY --from=builder /opt/server /opt/server
 CMD ["node", "server.js"]
 
