@@ -10,8 +10,8 @@ RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 RUN chown -R roboshop:roboshop /opt/server
 ENV MONGO_URL="mongodb://mongodb:27017/catalogue" \
     MONGO=true
-RUN apk update --no-cache
-RUN apk add --no-cache net-tools git
+RUN apk update --no-cache \
+    && apk add --no-cache net-tools git \
 COPY --from=builder /opt/server /opt/server
 USER roboshop
 CMD ["node", "server.js"]
