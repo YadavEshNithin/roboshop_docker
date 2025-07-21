@@ -7,7 +7,7 @@ COPY payment.ini .
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop \
     && chown -R roboshop:roboshop /opt/server \
     && pip3 install -r requirements.txt
-USER roboshop
+# USER roboshop
 CMD ["uwsgi", "--ini", "payment.ini"]
 
 
