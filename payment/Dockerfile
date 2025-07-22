@@ -12,6 +12,7 @@ WORKDIR /opt/server
 # RUN addgroup -S roboshop && adduser -S roboshop -G roboshop \
 #     && chown -R roboshop:roboshop /opt/server 
 # USER roboshop
+ENV PATH="/usr/local/bin:${PATH}"
 COPY --from=builder /opt/server /opt/server/
 CMD ["uwsgi", "--ini", "payment.ini"]
 
