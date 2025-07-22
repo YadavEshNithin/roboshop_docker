@@ -5,6 +5,7 @@ COPY *.py /opt/server/
 COPY requirements.txt /opt/server/
 RUN apk add --no-cache gcc musl-dev python3-dev libffi-dev openssl-dev
 RUN pip install -r requirements.txt
+RUN find / -name uwsgi -type f
 
 FROM python:3.9.23-alpine3.22
 WORKDIR /opt/server
