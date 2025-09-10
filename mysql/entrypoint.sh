@@ -8,6 +8,7 @@ else
     exit 1
 fi
 # Making it as available in env
-export MYSQL_ROOT_PASSWORD=$PASSWORD
+# export MYSQL_ROOT_PASSWORD=$PASSWORD
 # rm -rf /tmp/mysql_root_password.txt
-exec /entrypoint.sh mysqld
+# exec /entrypoint.sh mysqld
+exec env MYSQL_ROOT_PASSWORD=$PASSWORD /entrypoint.sh mysqld
